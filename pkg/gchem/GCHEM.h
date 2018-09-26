@@ -56,10 +56,22 @@ CEOP
       INTEGER gchem_int4
       INTEGER gchem_int5
 
+C--   COMMON /GCHEM_PARM_R/
+C  sc_cfc11_p0 :: CFC11 schmidt number coeficient for polynomial order 0
+C  sc_cfc11_p1 :: CFC11 schmidt number coeficient for polynomial order 1
+C  sc_cfc11_p2 :: CFC11 schmidt number coeficient for polynomial order 2
+C  sc_cfc11_p3 :: CFC11 schmidt number coeficient for polynomial order 3
+C  sc_cfc12_p0 :: CFC12 schmidt number coeficient for polynomial order 0
+C  sc_cfc12_p1 :: CFC12 schmidt number coeficient for polynomial order 1
+C  sc_cfc12_p2 :: CFC12 schmidt number coeficient for polynomial order 2
+C  sc_cfc12_p3 :: CFC12 schmidt number coeficient for polynomial order 3
+
       COMMON /GCHEM_PARM_R/
      &           gchem_rl1, gchem_rl2, gchem_rl3,
      &           gchem_rl4, gchem_rl5,
-     &           gchem_ForcingPeriod, gchem_ForcingCycle
+     &           gchem_ForcingPeriod, gchem_ForcingCycle,
+     &           sc_cfc11_p0, sc_cfc11_p1, sc_cfc11_p2, sc_cfc11_p3,
+     &           sc_cfc12_p0, sc_cfc12_p1, sc_cfc12_p2, sc_cfc12_p3
       _RL     gchem_rl1
       _RL     gchem_rl2
       _RL     gchem_rl3
@@ -67,5 +79,13 @@ CEOP
       _RL     gchem_rl5
       _RL     gchem_ForcingPeriod
       _RL     gchem_ForcingCycle
+      _RL     sc_cfc11_p0
+      _RL     sc_cfc11_p1
+      _RL     sc_cfc11_p2
+      _RL     sc_cfc11_p3
+      _RL     sc_cfc12_p0
+      _RL     sc_cfc12_p1
+      _RL     sc_cfc12_p2
+      _RL     sc_cfc12_p3
 
 #endif /* ALLOW_GCHEM */

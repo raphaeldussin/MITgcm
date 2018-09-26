@@ -2,3 +2,5 @@
   useCFC=.TRUE.,
   nsubtime=1,
  &
+ &GCHEM_PARM02
+ &

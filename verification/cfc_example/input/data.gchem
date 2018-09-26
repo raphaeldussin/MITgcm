@@ -2,3 +2,6 @@
   useCFC=.TRUE.,
   nsubtime=1,
  &
+ &GCHEM_PARM02
+ sc_cfc11_p0 = 0.
+ &

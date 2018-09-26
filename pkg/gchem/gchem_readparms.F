@@ -52,6 +52,13 @@ C  to test the flag before any corresponding pkg S/R call
      &           gchem_ForcingPeriod, gchem_ForcingCycle,
      &           tIter0
 
+C- Schmidt number/Solubility/... coeficients
+      NAMELIST /GCHEM_PARM02/
+     &           sc_cfc11_p0, sc_cfc11_p1, sc_cfc11_p2, sc_cfc11_p3,
+     &           sc_cfc12_p0, sc_cfc12_p1, sc_cfc12_p2, sc_cfc12_p3
+C     &           sc_co2_p0, sc_co2_p1, sc_co2_p2, sc_co2_p3,
+C     &           sc_o2_p0, sc_o2_p1, sc_o2_p2, sc_o2_p3
+
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 
       IF ( .NOT.useGCHEM ) THEN
@@ -92,15 +99,32 @@ C- Set defaults values for parameters in GCHEM.h
 C  default periodic forcing to same as for physics
        gchem_ForcingPeriod=externForcingPeriod
        gchem_ForcingCycle=externForcingCycle
+
+C Schmidt number coeficients
+       sc_cfc11_p0 = 3501.8 _d 0
+       sc_cfc11_p1 = -210.31 _d 0
+       sc_cfc11_p2 =    6.1851 _d 0
+       sc_cfc11_p3 =   -0.075139 _d 0
+
+       sc_cfc12_p0 = 3845.4 _d 0
+       sc_cfc12_p1 = -228.95 _d 0
+       sc_cfc12_p2 =    6.1908 _d 0
+       sc_cfc12_p3 =   -0.067430 _d 0
+
+
 C- Open and read the data.gchem file
       WRITE(msgBuf,'(A)') ' GCHEM_READPARMS: opening data.gchem'
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
      &                    SQUEEZE_RIGHT, myThid )
       CALL OPEN_COPY_DATA_FILE(
-     I                   'data.gchem', 'GCHEM_PARM01',
+     I                   'data.gchem', 'GCHEM_READPARMS',
      O                   iUnit,
      I                   myThid )
+      
       READ(UNIT=iUnit,NML=GCHEM_PARM01)
+
+      READ(UNIT=iUnit,NML=GCHEM_PARM02)
+
       WRITE(msgBuf,'(A)')
      &  ' GCHEM_READPARMS: finished reading data.gchem'
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
