@@ -167,7 +167,8 @@ c--   >>> Loop over records.
      &        fnamefld, tmpfld2d, irec, doglobalread,
      &        ladinit, optimcycle, myThid, xx_gen_dummy )
 #else
-        CALL READ_REC_XY_RL( fnamefld, tmpfld2d, iRec, 1, myThid )
+        CALL READ_REC_3D_RL( fnamefld, ctrlprec, 1, tmpfld2d, 
+     &                       iRec, 1, myThid )
 #endif
 
 c--     Loop over this thread tiles.
@@ -213,7 +214,8 @@ c--   End of loop over records.
      &        fnamefld, tmpfld2d, irec, doglobalread,
      &        ladinit, optimcycle, myThid, xx_gen_dummy )
 #else
-        CALL READ_REC_XY_RL( fnamefld, tmpfld2d, iRec, 1, myThid )
+        CALL READ_REC_3D_RL( fnamefld, ctrlprec, 1, tmpfld2d, 
+     &                       iRec, 1, myThid )
 #endif
 
 c--     Loop over this thread tiles.
@@ -271,7 +273,8 @@ c--   >>> Loop 2 over records.
      &        fnamefld, tmpfld2d, irec, doglobalread,
      &        ladinit, optimcycle, myThid, xx_gen_dummy )
 #else
-        CALL READ_REC_XY_RL( fnamefld, tmpfld2d, iRec, 1, myThid )
+        CALL READ_REC_3D_RL( fnamefld, ctrlprec, 1, tmpfld2d, 
+     &                       iRec, 1, myThid )
 #endif
 
 c--     Loop over this thread tiles.
@@ -335,7 +338,8 @@ c--   >>> Loop 2 over records.
      &        fnamefld, tmpfld2d, irec, doglobalread,
      &        ladinit, optimcycle, myThid, xx_gen_dummy )
 #else
-        CALL READ_REC_XY_RL( fnamefld, tmpfld2d, iRec, 1, myThid )
+        CALL READ_REC_3D_RL( fnamefld, ctrlprec, 1, tmpfld2d, 
+     &                       iRec, 1, myThid )
 #endif
 
         _EXCH_XY_RL(tmpfld2d, myThid)
@@ -508,7 +512,8 @@ c--   >>> Loop 1 to compute mean forcing:
      &                       ladinit, optimcycle, myThid
      &        , xx_gen_dummy )
 #else
-        CALL READ_REC_XYZ_RL( fnamefld, tmpfld3d, iRec, 1, myThid )
+        CALL READ_REC_3D_RL( fnamefld, ctrlprec, nR, tmpfld3d, 
+     &                       iRec, 1, myThid )
 #endif
 
 c--     Loop over this thread tiles.

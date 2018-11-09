@@ -332,7 +332,8 @@ c-- part 1: preliminary reads and definitions
       call active_read_xyz(weighttype, wei3d, 1,
      &    .FALSE., .FALSE., 0 , mythid, dummy)
 #else
-      CALL READ_REC_XYZ_RL( weighttype, wei3d, 1, 1, myThid )
+      CALL READ_REC_3D_RL( weighttype, ctrlprec, nR, wei3d, 
+     &                     1, 1, myThid )
 #endif
 #endif
 
@@ -340,7 +341,7 @@ c-- part 1: preliminary reads and definitions
       call active_read_xyz(masktype, msk3d, 1,
      &    .FALSE., .FALSE., 0 , mythid, dummy)
 #else
-      CALL READ_REC_XYZ_RL( masktype, msk3d, 1, 1, myThid )
+      CALL READ_REC_3D_RL( masktype, ctrlprec, nR, msk3d, 1, 1, myThid )
 #endif
 
       if ( doPackDiag ) then

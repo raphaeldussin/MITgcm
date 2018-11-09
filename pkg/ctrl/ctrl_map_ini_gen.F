@@ -120,7 +120,8 @@ c--   only do interior, and exchange outside
       call active_read_xyz( fnamegeneric, xxFld3d, 1,
      & doglobalread, ladinit, optimcycle, mythid, xxDummyCur )
 #else
-      CALL READ_REC_XYZ_RL( fnamegeneric, xxFld3d, 1, 1, myThid )
+      CALL READ_REC_3D_RL( fnamegeneric, ctrlprec, nR, xxFld3d, 
+     &                     1, 1, myThid )
 #endif
 
       IF ( .NOT.ctrlSmoothCorrel3D ) THEN
@@ -332,7 +333,8 @@ c--   only do interior, and exchange outside
       call active_read_xy( fnamegeneric, xxFld2d, 1,
      & doglobalread, ladinit, optimcycle, mythid, xxDummyCur )
 #else
-      CALL READ_REC_XY_RL( fnamegeneric, xxFld2d, 1, 1, myThid )
+      CALL READ_REC_3D_RL( fnamegeneric, ctrlprec, 1, xxFld2d, 
+     &                     1, 1, myThid )
 #endif
 
       IF ( .NOT.ctrlSmoothCorrel2D ) THEN

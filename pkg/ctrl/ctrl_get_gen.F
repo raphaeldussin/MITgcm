@@ -143,7 +143,8 @@ cc#else
      &                       mythid, xx_gen_dummy )
         endif
 #else
-      CALL READ_REC_XY_RL( fnamegen, xx_gen1, gencount0, 1, myThid )
+        CALL READ_REC_3D_RL( fnamegen, ctrlprec, 1, xx_gen1, 
+     &                       gencount0, 1, myThid )
 #endif
 cc#endif /* ALLOW_OPENAD */
 
@@ -180,7 +181,8 @@ cc#else
      &                       doglobalread, ladinit, optimcycle,
      &                       mythid, xx_gen_dummy )
 #else
-        CALL READ_REC_XY_RL( fnamegen, xx_gen1, gencount1, 1, myThid )
+        CALL READ_REC_3D_RL( fnamegen, ctrlprec, 1, xx_gen1, 
+     &                       gencount1, 1, myThid )
 #endif
 cc#endif /* ALLOW_OPENAD */
 #ifdef ECCO_CTRL_DEPRECATED

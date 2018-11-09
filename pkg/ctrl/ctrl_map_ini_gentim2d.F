@@ -172,7 +172,8 @@ CADJ STORE xx_gentim2d_dummy = ctrltape, key = 1 , kind = isbyte
      &                       doglobalread, ladinit, optimcycle,
      &                       mythid, xx_gentim2d_dummy(iarr) )
 #else
-         CALL READ_REC_XY_RL( fnamegenIn, xx_gen, iRec, 1, myThid )
+         CALL READ_REC_3D_RL( fnamegenIn, ctrlprec, 1, xx_gen, 
+     &                        iRec, 1, myThid )
 #endif
 #ifdef ALLOW_AUTODIFF
          call active_write_xy( fnamegenOut, xx_gen, krec, optimcycle,
@@ -227,8 +228,8 @@ CADJ STORE xx_gentim2d_dummy = ctrltape, key = 1 , kind = isbyte
      &                       doglobalread, ladinit, optimcycle,
      &                       mythid, xx_gentim2d_dummy(iarr) )
 #else
-           CALL READ_REC_XY_RL( fnamegenOut, xx_gen_tmp, krec, 
-     &                       1, myThid )
+           CALL READ_REC_3D_RL( fnamegenOut, ctrlprec, 1, xx_gen_tmp,
+     &                          krec, 1, myThid )
 #endif
            call ecco_add(xx_gen_tmp,1,xx_gen,1,myThid)
          enddo
@@ -261,14 +262,16 @@ CADJ STORE xx_gentim2d_dummy = ctrltape, key = 1 , kind = isbyte
      &                       doglobalread, ladinit, optimcycle,
      &                       mythid, xx_gentim2d_dummy(iarr) )
 #else
-         CALL READ_REC_XY_RL( fnamegenOut, xx_gen, kRec, 1, myThid )
+         CALL READ_REC_3D_RL( fnamegenOut, ctrlprec, 1, xx_gen, 
+     &                        kRec, 1, myThid )
 #endif
 #ifdef ALLOW_AUTODIFF
          CALL active_read_xy( fnamegenTmp, xx_gen_tmp, iRec,
      &                       doglobalread, ladinit, optimcycle,
      &                       mythid, xx_gentim2d_dummy(iarr) )
 #else
-         CALL READ_REC_XY_RL( fnamegenTmp, xx_gen_tmp, iRec, 1, myThid )
+         CALL READ_REC_3D_RL( fnamegenTmp, ctrlprec, 1, xx_gen_tmp, 
+     &                        iRec, 1, myThid )
 #endif
          CALL ecco_subtract(xx_gen_tmp,1,xx_gen,1,myThid)
 #ifdef ALLOW_AUTODIFF
@@ -296,7 +299,8 @@ CADJ STORE xx_gentim2d_dummy = ctrltape, key = 1 , kind = isbyte
      &                       doglobalread, ladinit, optimcycle,
      &                       mythid, xx_gentim2d_dummy(iarr) )
 #else
-         CALL READ_REC_XY_RL( fnamegenOut, xx_gen, iRec, 1, myThid )
+         CALL READ_REC_3D_RL( fnamegenOut, ctrlprec, 1, xx_gen, 
+     &                        iRec, 1, myThid )
 #endif
 
 #ifndef ALLOW_OPENAD

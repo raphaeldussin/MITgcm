@@ -260,7 +260,8 @@ c--   Now, read the control vector.
       call active_read_xy( fnamegenIn, xx_gen, 1, doglobalread,
      & ladinit, optimcycle, mythid, xx_genarr2d_dummy(iarr) )
 #else
-      CALL READ_REC_XY_RL( fnamegenIn, xx_gen, 1, 1, myThid)
+      CALL READ_REC_3D_RL( fnamegenIn, ctrlprec, 1, xx_gen, 
+     &                     1, 1, myThid)
 #endif
 
 #ifdef ALLOW_SMOOTH
@@ -418,7 +419,8 @@ c--   Now, read the control vector.
       call active_read_xyz( fnamegenIn, xx_gen, 1, doglobalread,
      & ladinit, optimcycle, mythid, xx_genarr3d_dummy(iarr) )
 #else
-      CALL READ_REC_XYZ_RL( fnamegenIn, xx_gen, 1, 1, myThid)
+      CALL READ_REC_3D_RL( fnamegenIn, ctrlprec, nR, xx_gen, 
+     &                     1, 1, myThid)
 #endif
 
 #ifdef ALLOW_SMOOTH
